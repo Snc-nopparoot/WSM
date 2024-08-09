@@ -1,20 +1,18 @@
-services:
-  sql_server:
-    image: mcr.microsoft.com/mssql/server:2019-latest
-    container_name: sql_server_2019
-    environment:
-      - ACCEPT_EULA=Y
-      - SA_PASSWORD=WSM@@2024
-    ports:
-      - "1435:1433"
-    volumes:
-      - sqlserver_data:/var/opt/mssql
-    networks:
-      - sql_network
+version: '3.8'
 
-networks:
-  sql_network:
-    driver: bridge
+services:
+  postgres:
+    image: postgres:14
+    container_name: my_postgres
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Wsm##2024@#@#@#
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5433:5432"
+    restart: unless-stopped
 
 volumes:
-  sqlserver_data:
+  postgres_data:
