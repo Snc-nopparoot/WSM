@@ -51,9 +51,9 @@ export class AssignTaskUseCase {
     // บันทึกการมอบหมายงานลงในฐานข้อมูล
     const savedAssignment = await this.taskAssignmentRepository.create(assignment);
 
-    // อัพเดทสถานะของงาน (ถ้าจำเป็น)
-    task.updateStatus('In Progress');
-    await this.taskRepository.update(task);
+    // // อัพเดทสถานะของงาน (ถ้าจำเป็น)
+    // task.updateStatus('In Progress');
+    // await this.taskRepository.update(task);
 
     // อาจมีการส่งการแจ้งเตือนให้ผู้ได้รับมอบหมายงาน
 

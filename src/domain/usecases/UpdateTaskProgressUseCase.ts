@@ -47,11 +47,11 @@ export class UpdateTaskProgressUseCase {
     // บันทึกการอัพเดทความคืบหน้าลงในฐานข้อมูล
     const savedUpdate = await this.progressUpdateRepository.create(progressUpdate);
 
-    // อัพเดทสถานะของงาน (ถ้าจำเป็น)
-    if (updateData.percentageComplete === 100) {
-      task.updateStatus('Completed');
-      await this.taskRepository.update(task);
-    }
+    // // อัพเดทสถานะของงาน (ถ้าจำเป็น)
+    // if (updateData.percentageComplete === 100) {
+    //   task.updateStatus('Completed');
+    //   await this.taskRepository.update(task);
+    // }
 
     // อาจมีการคำนวณและอัพเดทความคืบหน้าของ Phase และ Project ที่เกี่ยวข้อง
 
