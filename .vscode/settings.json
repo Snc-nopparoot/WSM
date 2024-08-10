@@ -1,0 +1,13 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 5434,
+            "driver": "PostgreSQL",
+            "name": "postgresql://postgres:Admin123localhost:5433/postgres",
+            "database": "wsm",
+            "username": "postgres"
+        }
+    ]
+}

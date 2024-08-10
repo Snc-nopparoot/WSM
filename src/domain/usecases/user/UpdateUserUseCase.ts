@@ -11,10 +11,10 @@ export class UpdateUserUseCase {
        private transactionManager: DatabaseTransactionManager 
     ) {}
 
-    async execute(userData: {id: number, name: string, password: string}): Promise<User> {
+    async execute(id: number, userData: { name: string, password: string}): Promise<User> {
         const transactionManager = await this.transactionManager.startTransaction();
         try {
-            const existingUser = await this.userRepository.findById(userData.id);
+            const existingUser = await this.userRepository.findById(id);
             if (!existingUser) {
                 throw new NotFoundError(ERROR_CODES.NF_001);
             }

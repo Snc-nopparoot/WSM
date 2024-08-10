@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { CreateUserUseCase, DeleteUserUseCase, FindUserByEmailUseCase, FindUserByIdUseCase, FindUserListUseCase, UpdateUserUseCase } from '@domain/usecases/user';
-import { CreateUserValidate, UpdateUserValidate } from '@interfaces/validators/userValidate';
+import { CreateUserValidate, UpdateUserValidate } from '@interfaces/validators/UserValidate';
 import { plainToClass } from 'class-transformer';
 import { validate } from 'class-validator';
 import { ERROR_CODES } from '@infrastructure/utils/errorCode';
@@ -93,7 +93,7 @@ export class UserController {
       if (error) {
         throw new ValidationError(ERROR_CODES.VAL_001);
       }
-      const user = await this.updateUserUseCase.execute({ id: Number(id), name: updateUserValidate.name, password: updateUserValidate.password });
+      const user = await this.updateUserUseCase.execute(Number(id), { name: updateUserValidate.name, password: updateUserValidate.password });
       if (!user) {
         throw new DatabaseError(ERROR_CODES.INTER_001);
       }
