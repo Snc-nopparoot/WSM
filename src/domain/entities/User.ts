@@ -4,7 +4,7 @@ export class User {
     public email: string,
     public name: string,
     public role: string,
-    private password: string,
+    public password: string,
     public readonly createdAt: Date,
     public updatedAt: Date | null,
     public deletedAt: Date | null,
