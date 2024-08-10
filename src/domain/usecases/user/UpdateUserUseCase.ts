@@ -7,14 +7,14 @@ import { hashPassword } from "@infrastructure/utils/hasher";
 
 export class UpdateUserUseCase {
     constructor(
-       private userRepositort: UserRepository,
+       private userRepository: UserRepository,
        private transactionManager: DatabaseTransactionManager 
     ) {}
 
     async execute(userData: {id: number, name: string, password: string}): Promise<User> {
         const transactionManager = await this.transactionManager.startTransaction();
         try {
-            const existingUser = await this.userRepositort.findById(userData.id);
+            const existingUser = await this.userRepository.findById(userData.id);
             if (!existingUser) {
                 throw new NotFoundError(ERROR_CODES.NF_001);
             }
@@ -30,7 +30,7 @@ export class UpdateUserUseCase {
                 null
             )
 
-            const updatedUser = await this.userRepositort.update(user);
+            const updatedUser = await this.userRepository.update(user);
             await transactionManager.commit();
             return updatedUser;
         } catch (error) {

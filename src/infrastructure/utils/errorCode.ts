@@ -62,6 +62,9 @@ export const ERROR_CODES = {
     PERF_001: 'Operation timed out',
     PERF_002: 'Resource exhausted',
 
-    EXIS_001: 'resourse has exists'
+    EXIS_001: 'resourse has exists',
+
+    //http
+    INTER_001: 'internal server error'
   } as const;
   

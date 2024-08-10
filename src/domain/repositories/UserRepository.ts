@@ -18,7 +18,7 @@ export interface UserRepository {
   findByEmail(email: string): Promise<User>;
   create(user: User): Promise<User>;
   update(user: User): Promise<User>;
-  delete(id: number): Promise<void>;
+  delete(user: User): Promise<User>; //soft dalete
   list(options: PaginationOptions): Promise<PaginatedResult<User>>;
   count(): Promise<number>;
 }
