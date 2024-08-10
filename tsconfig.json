@@ -13,11 +13,9 @@
       "strictPropertyInitialization": false,
       "baseUrl": "src",
       "paths": { // path alias
-        "@utils/*": ["utils/*"],
-        "@application/*": ["application/*"],
+        "@interfaces/*": ["interfaces/*"],
         "@domain/*": ["domain/*"],
-        "@core/*": ["core/*"],
-        "@config/*": ["config/*"],
+        "@infrastructure/*": ["infrastructure/*"],
       }
     }
   }
